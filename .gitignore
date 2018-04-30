@@ -1,67 +1,46 @@
-*.class
+# See http://help.github.com/ignore-files/ for more about ignoring files.
 
-# Package Files 
-*.war
-*.ear
+# compiled output
+/dist
+/dist-server
+/tmp
+/out-tsc
 
-# Dependency Directories
-API/node_modules
-UI/node_modules
-node_modules
+# dependencies
+/node_modules
 
-# WebStorm files
-API/.idea
-
-# Build files
-API/dist
-target
-/target/
-/.apt_generated/
-build
-tmp
-dist
-bin
-.bin
-.gradle
-
-# disney
-Config/**
-SBCLib/
-test-output
-
-# eclipse conf file
-.settings
-.classpath
+# IDEs and editors
+/.idea
 .project
-.factorypath
-.cache
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
 
-# idea conf files
-.idea
-*.iml
-*.ipr
-*.iws
-*.eml
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
 
 # misc
+/.sass-cache
+/connect.lock
+/coverage
+/libpeerconnection.log
+npm-debug.log
+yarn-error.log
+testem.log
+/typings
+
+# e2e
+/e2e/*.js
+/e2e/*.map
+
+# System Files
 .DS_Store
-*.lock
-*.springBeans
-.nb-gradle
+Thumbs.db
 
-# local development config file
-/API/src/api/local_config.js
-
-# npm-debug log
-API/npm-debug.log
-
-.vscode/
-
-#Logs files
-*.log
-
-#Netbeans
-nbproject/*
-
-#Vagrant
-.vagrant/
+package-lock.json
