@@ -1,0 +1,29 @@
+#right-content{
+
+    padding-right: 0px!important;  
+    padding-left: 0px!important;  
+}
+#left-sidebar{
+    padding-right: 0px!important;  
+    padding-left: 0px!important; 
+    
+    height: 100%;
+    background: url(/assets/img/home_sidebar.jpg);
+    position: relative;
+    z-index: 5;
+    margin: 0 0 0 -1px;
+}
+.row {
+ 
+    margin-right: 0px;
+    margin-left: 0px;
+}
+
+#passport-app {
+border-radius: 12px 12px 12px 12px;
+-moz-border-radius: 12px 12px 12px 12px;
+-webkit-border-radius: 12px 12px 12px 12px;
+border: 2px solid #edf3ff;
+margin: 8px;
+overflow: hidden;
+}

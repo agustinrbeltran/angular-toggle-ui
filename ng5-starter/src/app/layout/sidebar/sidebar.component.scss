@@ -1,0 +1,29 @@
+.inside-side {
+    border-radius: 7px 0px 0px 7px;
+    -moz-border-radius: 7px 0px 0px 7px;
+    -webkit-border-radius: 7px 0px 0px 7px;
+    border: 1px solid #edf3ff;
+    margin: 8px;
+    padding:8px;
+}
+
+#homepage_sidebar_logo {
+    background-position: -265px -685px;
+    height: 61px;
+    margin: 21px 31px 26px 31px;
+    width: 203px;
+    background-image: url(/assets/img/sprite.png);
+}
+
+.list-group-item{
+
+    background-color: #e4f6ff!important;
+}
+
+.list-group-item:hover {
+    background-color: #fff!important;
+}
+
+.list-group-item.active{
+    background-color: #355d88!important;
+}

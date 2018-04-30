@@ -1,0 +1,27 @@
+{
+    "site-name": {
+        "baseURL":"http://localhost:5000",
+        "templates": {
+            "ext-linkgen": {
+                "spaName":"SPA-name",
+                "template":"http://localhost:5000/"
+            }
+        }
+    },
+    "ext-demo": {
+        "baseURL":"http://localhost:5000",
+        "templates": {
+            "404": {
+                "spaName":"SPA-name",
+                "template":"/404"
+            },
+            "int-linkgen": {
+                "spaName":"SPA-int",
+                "template":"http://localhost:3000/developer-tools/link-generation"
+            }
+        }
+    },
+    "invalid-site": {
+        "baseURL":"http://localhost:8685"
+    }
+}

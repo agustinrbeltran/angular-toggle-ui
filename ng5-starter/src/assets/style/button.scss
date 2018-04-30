@@ -1,0 +1,43 @@
+@import "./theme/index";
+
+.button {
+    text-decoration: none;
+    color: black;
+    padding: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    border-style: solid;
+    border-radius: 5px;
+    border-width: 1.5px;
+    padding-left: 20px;
+    padding-right: 20px;
+    cursor: pointer;
+
+    &-primary {
+        border-style: none;
+        background-color: $primary-color;
+        color: white;
+    }
+
+    &-warning {
+        background-color: #fff086;
+        border-color: #ffee72;
+        color: #2f4767;
+    }
+
+    &-error {
+        background-color: #ff4444;
+        border-style: none;
+        color: white;
+    }
+
+    &-github {
+        border-style: none;
+        background-color: #3d4144;
+        color: white;
+    }
+
+    &-large {
+        font-size: large;
+    }
+}
