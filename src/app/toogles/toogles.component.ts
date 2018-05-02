@@ -11,7 +11,6 @@ export class TooglesComponent implements OnInit {
 
   res;
   error;
-  title = 'Toggles';
 
   environment = 'latest';
   cluster = 'a';

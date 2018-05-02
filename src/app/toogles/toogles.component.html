@@ -23,7 +23,7 @@
               <th>Toggle Name</th>
               <th>Description</th>
               <th>Type</th>
-              <th>Status Value</th>
+              <th>Constraints</th>
               <th>Actions</th>
             </tr>
           </thead>
@@ -32,8 +32,19 @@
               <td>{{toggle.feature}}</td>
               <td>{{toggle.description}}</td>
               <td>{{toggle.type}}</td>
-              <td *ngIf='toggle.type === "on-off" '>{{toggle.enabled}}</td>
-              <td *ngIf='toggle.type !== "on-off" '>{{toggle.constraints | json}}</td>
+              <td *ngIf='toggle.type === "on-off" '>
+                <button 
+                  class="fa" 
+                  [class.fa-toggle-on]="toggle.enabled" 
+                  [class.fa-toggle-off]="!toggle.enabled" 
+                  type="button"
+                  aria-hidden="true"
+                >
+                </button>
+              </td>
+              <td *ngIf='toggle.type !== "on-off" '>
+                {{toggle.constraints | prettyjson }}
+              </td>
               <td>
                 <button type="button" class="btn btn-sm btn-primary waves-light" mdbWavesEffect>
                   <i class="fa fa-edit" aria-hidden="true"></i>

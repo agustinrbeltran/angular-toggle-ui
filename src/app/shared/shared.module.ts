@@ -4,8 +4,12 @@ import { ToastrModule } from 'ngx-toastr';
 
 import { ToggleService } from './toggle.service';
 import { HttpClientModule } from '@angular/common/http';
+import { PrettyJsonPipe } from './prettyjson.pipe';
 
 @NgModule({
+  declarations: [
+    PrettyJsonPipe
+  ],
   imports: [
     CommonModule,
     ToastrModule.forRoot({
@@ -17,5 +21,8 @@ import { HttpClientModule } from '@angular/common/http';
   providers: [
     ToggleService
   ],
+  exports: [
+    PrettyJsonPipe
+  ]
 })
 export class SharedModule { }
