@@ -3,16 +3,21 @@ import { ToggleService } from '../shared/toggle.service';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
-  selector: 'app-wdw-toogles',
-  templateUrl: './wdw-toogles.component.html',
-  styleUrls: ['./wdw-toogles.component.scss']
+  selector: 'app-toogles',
+  templateUrl: './toogles.component.html',
+  styleUrls: ['./toogles.component.scss']
 })
-export class WdwTooglesComponent implements OnInit {
+export class TooglesComponent implements OnInit {
 
   res;
   error;
   title = 'Toggles';
+
   environment = 'latest';
+  cluster = 'a';
+  application = 'sbc-wdw';
+  version = '0.1';
+
   
   constructor(private toggleService: ToggleService, private toastr: ToastrService) { }
 
@@ -21,7 +26,7 @@ export class WdwTooglesComponent implements OnInit {
   }
 
   getHealthCheck() {
-    this.toggleService.getToggles()
+    this.toggleService.getToggles(this.environment,this.cluster,this.application,this.version)
       .subscribe(
         (res) => {
           this.res = res;

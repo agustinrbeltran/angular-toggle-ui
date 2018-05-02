@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { WdwTooglesComponent } from './wdw-toogles.component';
+import { TooglesComponent } from './toogles.component';
 
-describe('WdwTooglesComponent', () => {
-  let component: WdwTooglesComponent;
-  let fixture: ComponentFixture<WdwTooglesComponent>;
+describe('TooglesComponent', () => {
+  let component: TooglesComponent;
+  let fixture: ComponentFixture<TooglesComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ WdwTooglesComponent ]
+      declarations: [ TooglesComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(WdwTooglesComponent);
+    fixture = TestBed.createComponent(TooglesComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

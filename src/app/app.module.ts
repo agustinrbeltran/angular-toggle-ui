@@ -1,5 +1,5 @@
 import { AppComponent } from './app.component';
-import { WdwTooglesComponent } from './wdw-toogles/wdw-toogles.component';
+import { TooglesComponent } from './toogles/toogles.component';
 import { HeaderComponent } from './layout/header/header.component';
 import { SidebarComponent } from './layout/sidebar/sidebar.component';
 import { BodyComponent } from './layout/body/body.component';
@@ -15,7 +15,7 @@ import { AppRoutingModule } from './app-routing.module';
 @NgModule({
   declarations: [
     AppComponent,
-    WdwTooglesComponent,
+    TooglesComponent,
     HeaderComponent,
     SidebarComponent,
     BodyComponent,

@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { WdwTooglesComponent } from './wdw-toogles/wdw-toogles.component';
+import { TooglesComponent } from './toogles/toogles.component';
 const routes: Routes = [
   {
     path: '',
-    component: WdwTooglesComponent
+    component: TooglesComponent
   }
 ];
 

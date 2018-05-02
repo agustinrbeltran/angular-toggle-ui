@@ -4,12 +4,12 @@ import { Observable } from 'rxjs/Observable';
 
 export class Toggle {
     type: string;
-    constrain: {
+    constraints: {
       user:string[]
     };
     feature: string;
     description: string;
-    enabled:boolean
+    enabled:boolean;
 }
 
 export class TogglesResponse{
@@ -26,9 +26,9 @@ export class ToggleService {
   constructor(private _http: HttpClient) {
   }
 
-  getToggles(): Observable<any> {
+  getToggles(environment:string,cluster:string,application:string,version:string): Observable<any> {
         const headers = new HttpHeaders();
-        const URL = '/dev/deployments/environments/latest/clusters/a/applications/sbc-wdw/version/0.1';
+        const URL = '/dev/deployments/environments/'+ environment +'/clusters/'+ cluster +'/applications/'+ application +'/version/'+ version;
         headers.set('Access-Control-Allow-Origin','*');
         headers.append('Access-Control-Allow-Methods','GET');
 
