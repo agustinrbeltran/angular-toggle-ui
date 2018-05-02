@@ -1,0 +1,8 @@
+{
+    "/" : {
+        "target" : "https://lgttftkd6d.execute-api.us-east-1.amazonaws.com",
+        "secure" : false,
+        "logLevel" : "debug",
+        "changeOrigin": true
+    }
+}

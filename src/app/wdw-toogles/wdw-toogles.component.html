@@ -5,100 +5,58 @@
     </div>
     <div class="card-body">
       <h4 class="card-title">Select and update specific toggle</h4>
-      <p class="card-text">
-        Enable or Disable
 
-      </p>
-       
-      <table class="table table-hover">
-        <thead>
-          <tr>
-            <th style="width:70px;">Status</th>
-            <th>Name</th>
+      <div *ngIf="res; then ThenBlock; else ElseBlock">
+      </div>
 
-            <th style="width:350px;">Action</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row">
-              <h4>
-                <i class="fa fa-toggle-on" aria-hidden="true"></i>
-              </h4>
-            </th>
-            <td>Mark</td>
-
-            <td>
-                <button type="button" class="btn btn-sm btn-primary waves-light" mdbWavesEffect>
-                  <i class="fa fa-edit" aria-hidden="true"></i> edit
-                </button>
-                <button type="button" class="btn btn-sm btn-primary waves-light" mdbWavesEffect>
-                  <i class="fa fa-history" aria-hidden="true"></i>
-                  history
-                </button>
-              </td>
-          </tr>
-          <tr>
-            <th scope="row">
-              <h4>
-                <i class="fa fa-toggle-off" aria-hidden="true"></i>
-              </h4>
-            </th>
-            <td>Jacob</td>
-
-            <td>
-                <button type="button" class="btn btn-sm btn-primary waves-light" mdbWavesEffect>
-                  <i class="fa fa-edit" aria-hidden="true"></i> edit
-                </button>
-                <button type="button" class="btn btn-sm btn-primary waves-light" mdbWavesEffect>
-                  <i class="fa fa-history" aria-hidden="true"></i>
-                  history
-                </button>
-              </td>
-          </tr>
-          <tr>
-            <th scope="row">
-              <h4>
-                <i class="fa fa-toggle-off" aria-hidden="true"></i>
-              </h4>
-            </th>
-            <td>Jacob</td>
-
-            <td>
-                <button type="button" class="btn btn-sm btn-primary waves-light" mdbWavesEffect>
-                  <i class="fa fa-edit" aria-hidden="true"></i> edit
-                </button>
-                <button type="button" class="btn btn-sm btn-primary waves-light" mdbWavesEffect>
-                  <i class="fa fa-history" aria-hidden="true"></i>
-                  history
-                </button>
-              </td>
-          </tr>
-          <tr>
+      <ng-template #ThenBlock>
+        <p class="card-text">
+          Environment: {{res.environment}}
+          <br>
+          Cluster: {{res.cluster}}
+          <br>
+          App Version: {{res.applicationVersion}}
+        </p>
+        <table class="table table-hover">
+          <thead>
             <tr>
-              <tr>
-                <th scope="row">
-                  <h4>
-                    <i class="fa fa-toggle-off" aria-hidden="true"></i>
-                  </h4>
-                </th>
-                <td>Jacob</td>
-                <td>
-                  <button type="button" class="btn btn-sm btn-primary waves-light" mdbWavesEffect>
-                    <i class="fa fa-edit" aria-hidden="true"></i> edit
-                  </button>
-                  <button type="button" class="btn btn-sm btn-primary waves-light" mdbWavesEffect>
-                    <i class="fa fa-history" aria-hidden="true"></i>
-                    history
-                  </button>
-                </td>
-              </tr>
-
-        </tbody>
-      </table>
+              <th>Toggle Name</th>
+              <th>Description</th>
+              <th>Type</th>
+              <th>Status Value</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let toggle of res.toggles">
+              <td>{{toggle.feature}}</td>
+              <td>{{toggle.description}}</td>
+              <td>{{toggle.type}}</td>
+              <td *ngIf='toggle.type === "on-off" '>{{toggle.enabled}}</td>
+              <td *ngIf='toggle.type !== "on-off" '>{{toggle.constraints | json}}</td>
+              <td>
+                <button type="button" class="btn btn-sm btn-primary waves-light" mdbWavesEffect>
+                  <i class="fa fa-edit" aria-hidden="true"></i>
+                  edit
+                </button>
+                <button type="button" class="btn btn-sm btn-primary waves-light" mdbWavesEffect>
+                  <i class="fa fa-trash" aria-hidden="true"></i>
+                  remove
+                </button>
+                <button type="button" class="btn btn-sm btn-primary waves-light" mdbWavesEffect>
+                  <i class="fa fa-history" aria-hidden="true"></i>
+                  history
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </ng-template>
+      <ng-template #ElseBlock>
+        <div>
+          <b>Service not working.</b>
+        </div>
+      </ng-template>
     </div>
-
   </div>
-
-
-  <div>
+</div>
