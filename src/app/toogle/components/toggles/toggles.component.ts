@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { ToggleService } from '../shared/toggle.service';
 import { ToastrService } from 'ngx-toastr';
+import { ToggleService } from '../../services/toggle.service';
 
 @Component({
-  selector: 'app-toogles',
-  templateUrl: './toogles.component.html',
-  styleUrls: ['./toogles.component.scss']
+  selector: 'app-toggles',
+  templateUrl: './toggles.component.html',
+  styleUrls: ['./toggles.component.scss']
 })
-export class TooglesComponent implements OnInit {
+export class TogglesComponent implements OnInit {
 
   res;
   error;
@@ -17,15 +17,15 @@ export class TooglesComponent implements OnInit {
   application = 'sbc-wdw';
   version = '0.1';
 
-  
+
   constructor(private toggleService: ToggleService, private toastr: ToastrService) { }
 
   ngOnInit() {
-    this.getHealthCheck();
+    this.getToggles();
   }
 
-  getHealthCheck() {
-    this.toggleService.getToggles(this.environment,this.cluster,this.application,this.version)
+  getToggles() {
+    this.toggleService.getToggles(this.environment, this.cluster, this.application, this.version)
       .subscribe(
         (res) => {
           this.res = res;
@@ -37,7 +37,7 @@ export class TooglesComponent implements OnInit {
         }
       );
   }
-  
+
   clearCache() {
     this.toggleService.invalidateCache()
       .subscribe(

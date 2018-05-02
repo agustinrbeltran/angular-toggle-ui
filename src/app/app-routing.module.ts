@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { TooglesComponent } from './toogles/toogles.component';
+import { TogglesComponent } from './toogle/components/toggles/toggles.component';
+
 const routes: Routes = [
   {
     path: '',
-    component: TooglesComponent
+    component: TogglesComponent
   }
 ];
 
