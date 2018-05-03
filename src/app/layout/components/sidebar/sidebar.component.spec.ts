@@ -1,7 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SharedSidebarService } from '../shared-sidebar.service';
 import { SidebarComponent } from './sidebar.component';
+import { SharedSidebarService } from '../../services/shared-sidebar.service';
 
 class SharedSidebarServiceMock {
     setSidebar() {}

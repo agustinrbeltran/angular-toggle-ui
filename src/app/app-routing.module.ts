@@ -1,15 +1,20 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { WdwTooglesComponent } from './wdw-toogles/wdw-toogles.component';
+import { TogglesComponent } from './toogle/components/toggles/toggles.component';
+
 const routes: Routes = [
   {
     path: '',
-    component: WdwTooglesComponent
+    component: TogglesComponent
   }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  imports: [
+    RouterModule.forRoot(routes)
+  ],
+  exports: [
+    RouterModule
+  ]
 })
 export class AppRoutingModule { }
