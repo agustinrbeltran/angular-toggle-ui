@@ -7,10 +7,12 @@ import { TogglesComponent } from './components/toggles/toggles.component';
 
 import { ToggleService } from './services/toggle.service';
 import { SharedModule } from '../shared/shared.module';
+import { TestFormComponent } from './components/test-form/test-form.component';
 
 @NgModule({
     declarations: [
-        TogglesComponent
+        TogglesComponent,
+        TestFormComponent
     ],
     imports: [
         CommonModule,

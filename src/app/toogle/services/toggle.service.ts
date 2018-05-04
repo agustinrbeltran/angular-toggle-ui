@@ -1,24 +1,7 @@
 import { Injectable, Inject } from '@angular/core';
 import { HttpClient, HttpHandler,HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
-
-export class Toggle {
-    type: string;
-    constraints: {
-      user:string[]
-    };
-    feature: string;
-    description: string;
-    enabled:boolean;
-}
-
-export class TogglesResponse{
-    applicationName:string;
-    applicationVersion:string;
-    cluster:string;
-    environment:string;
-    toggles:Toggle[];
-}
+import { TogglesResponse } from '../components/domain/toggles-response';
 
 @Injectable()
 export class ToggleService {
@@ -26,13 +9,13 @@ export class ToggleService {
   constructor(private _http: HttpClient) {
   }
 
-  getToggles(environment:string,cluster:string,application:string,version:string): Observable<any> {
+  getToggles(environment:string,cluster:string,application:string,version:string): Observable<TogglesResponse> {
         const headers = new HttpHeaders();
         const URL = '/dev/deployments/environments/'+ environment +'/clusters/'+ cluster +'/applications/'+ application +'/version/'+ version;
         headers.set('Access-Control-Allow-Origin','*');
         headers.append('Access-Control-Allow-Methods','GET');
 
-        return this._http.get(URL,{headers});
+        return this._http.get<TogglesResponse>(URL,{headers});
   }
 
   invalidateCache(): Observable<any> {
