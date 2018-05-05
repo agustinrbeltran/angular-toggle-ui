@@ -1,0 +1,112 @@
+#toggles-container {
+    clear: both;
+}
+
+.btn-primary {
+    background-color: #355d88 !important;
+    color: #fff !important;
+}
+
+.icon-toggle {
+    float: right;
+}
+
+.icon-toggle i {
+    font-size: 20px !important;
+}
+
+ul li i {
+    font-size: 14px !important;
+}
+
+.success-color {
+    background-color: #6fa623 !important;
+}
+
+.status-blacklist .success-color {
+    background-color: #65778a !important;
+}
+
+.status-whitelist .success-color {
+    background-color: #65778a !important;
+}
+
+.status-on-off .success-color {
+    background-color: #65778a !important;
+}
+
+h4 {
+    text-transform: capitalize;
+}
+
+.card-subtitle {}
+
+.sub-header-separator {
+    margin-top: 9px;
+}
+
+.list-container {
+    margin-left: 0px;
+}
+
+.list-container .ulist {
+    margin-left: 0px;
+    overflow-y: scroll;
+    max-height: 140px;
+    border-top-color: #ccc;
+    border-top-style: solid;
+    border-top-width: 0px;
+}
+
+.list-container .ulist>ul>li {
+    background-color: #f5f9ff !important;
+}
+
+.list-container ul,
+.list-container span {
+    margin-left: 6px;
+}
+
+.content-description {
+    padding-right: 5px;
+}
+
+.kng-cards-contents {
+    max-height: 170px;
+    min-height: 170px;
+    overflow: hidden;
+}
+
+.onoff-container i {
+    font-size: 46px !important;
+    padding-top: 10px;
+}
+
+.status-container .fa.fa-toggle-on {
+    color: #6fa623 !important;
+}
+
+.status-container .fa.fa-toggle-off {
+    color: #65778a !important;
+}
+
+.statusOn {
+    color: #6fa623 !important;
+    font-size: 16px !important;
+    margin-top: -10px;
+}
+
+.statusOff {
+    color: #65778a !important;
+    font-size: 16px !important;
+    margin-top: -10px;
+}
+
+.nav-card {
+    margin-left: -7px !important;
+}
+
+.constraint-title {
+    text-transform: uppercase;
+    font-weight: bolder;
+}

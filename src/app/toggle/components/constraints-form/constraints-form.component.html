@@ -1,0 +1,33 @@
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Value</th>
+            <th>#</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let key of getKeys(constraints)">
+            <th>{{key}}</th>
+            <td>{{constraints.get(key)}}</td>
+            <td>
+                <button (click)="removeConstraint(key)" type="submit" class="fa fa-times button-border" aria-hidden="true">
+                </button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<form>
+    <div class="form-group">
+        <label>Name</label>
+        <input type="text" class="form-control" name="name" [(ngModel)]="name" required>
+    </div>
+
+    <div class="form-group">
+        <label>Value</label>
+        <input type="text" class="form-control" name="value" [(ngModel)]="value" required>
+    </div>
+
+    <button type="submit" class="btn btn-default waves-light" (click)="addContraint()">Add constraint</button>
+</form>

@@ -5,7 +5,7 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { SharedModule } from './shared/shared.module';
 import { AppRoutingModule } from './app-routing.module';
 import { LayoutModule } from './layout/layout.module';
-import { ToggleModule } from './toogle/toggle.module';
+import { ToggleModule } from './toggle/toggle.module';
 
 
 @NgModule({

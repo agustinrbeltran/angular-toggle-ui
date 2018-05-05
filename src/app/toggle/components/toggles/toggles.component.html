@@ -1,0 +1,32 @@
+<div id="toggles-container">
+  <div class="card">
+    <div class="card-header success-color white-text">
+      <i class="fa fa-exchange" aria-hidden="true"></i> Toggle Administration
+    </div>
+    <div class="card-body">
+      <h4 class="card-title">Select and update specific toggle</h4>
+      <div *ngIf="toggles; then ThenBlock; else ElseBlock">
+      </div>
+      <ng-template #ThenBlock>
+        <div class="card-text pull-right ">
+          <strong> Environment: </strong> {{toggleService.deployment.environment}}
+          <strong> Cluster: </strong> {{toggleService.deployment.cluster}}
+          <strong> Application: </strong> {{toggleService.deployment.application}}
+          <strong> App Version: </strong> {{toggleService.deployment.version}}
+        </div>
+        <div class="clearfix "></div>
+        <hr>
+        <div class="kng-cards-container ng-scope row toggle-kards">
+          <div *ngFor="let toggle of toggles" size="sm" ng-repeat="card in vm.smallCards" class="ng-scope ng-isolate-scope col-md-6 col-sm-6 col-xs-12 kng-cards-vertical size-sm">
+            <app-toggle [toggle]="toggle"></app-toggle>
+          </div>
+        </div>
+      </ng-template>
+      <ng-template #ElseBlock>
+        <div>
+          <b>Service not working.</b>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+</div>

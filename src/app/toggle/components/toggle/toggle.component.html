@@ -1,0 +1,57 @@
+<div class="kng-cards kng-cards-sm kng-cards-md status-{{toggle.type}}">
+  <div ng-class="{'kng-card-disabled': kngDisabled}" ng-disabled="kngDisabled" class="kng-cards-item size-sm" ng-transclude="" aria-disabled="false">
+    <div class="card-header success-color white-text">
+      <div class="icon-toggle">
+        <i *ngIf='toggle.type === "blacklist"' class="kng-icon kng-icon-minus" aria-hidden="true"></i>
+        <i *ngIf='toggle.type === "whitelist"' class="kng-icon kng-icon-chevron-right" aria-hidden="true"></i>
+        <i *ngIf='toggle.type === "on-off"' class="fa fa-toggle-on" aria-hidden="true"></i>
+      </div>
+      <div class="title-toggle">
+        {{toggle.feature}}
+      </div>
+    </div>
+    <div class="col-xs-12 kng-cards-contents ng-scope">
+      <div class="row kng-cards-details ">
+        <div class="col-xs-6 col-md-6 pull-left sub-header-separator content-description">
+          <div class="row kng-cards-info card-subtitle">
+            <h4 class="ng-binding">Type: {{toggle.type}}</h4>
+          </div>
+          <strong>Description: </strong>
+          <br>{{toggle.description}}
+          <div class="row kng-cards-info nav-card">
+            <app-custom-modal title="Edit toggle" buttonLabel="edit">
+              <p>TODO: Implement Edit Form</p>
+            </app-custom-modal>
+            <app-custom-modal title="Test toggle" buttonLabel="test">
+              <app-toggle-test [toggle]="toggle"></app-toggle-test>
+            </app-custom-modal>
+          </div>
+        </div>
+        <div *ngIf='toggle.type != "on-off"' class="col-xs-6 col-md-6 pull-right sub-header-separator list-container">
+          <span>
+            <strong>Constraints: </strong>
+          </span>
+          <div class="ulist">
+            <ul class="list-group">
+              <li *ngFor="let key of getKeys(toggle.constraints)" class="list-group-item">
+                <i class="fa fa-th" aria-hidden="true"></i>
+                <span class="constraint-title"> {{key}} </span>
+                <ul class="list-group" *ngIf='toggle.type != "on-off"'>
+                  <li class="list-group-item" *ngFor="let value of toggle.constraints.get(key)">
+                    <i class="fa fa-ellipsis-v" aria-hidden="true"></i> {{value}}
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div *ngIf='toggle.type == "on-off"' class="col-xs-6 col-md-6 pull-right sub-header-separator status-container">
+          <span>
+            <strong></strong>
+          </span>
+          <app-on-off-icon enabled=toggle.enabled></app-on-off-icon>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
