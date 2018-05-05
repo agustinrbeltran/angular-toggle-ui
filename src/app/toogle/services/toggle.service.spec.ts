@@ -45,7 +45,6 @@ describe('ToggleService', () => {
             backReq.flush('OK');
         });
     });
-    
     describe('call invalidateCache()', () => {
         it('should invalidate cache', (done) => {
             toggleService.invalidateCache()

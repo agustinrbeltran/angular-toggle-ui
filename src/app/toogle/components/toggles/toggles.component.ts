@@ -38,6 +38,18 @@ export class TogglesComponent implements OnInit {
       );
   }
 
+fetchConstraintName(toggleConstraint : any) {
+  if (toggleConstraint != null) {
+    const constraintProps:any = Object.keys(toggleConstraint);
+    return constraintProps;
+  } else {
+    return "";
+  }
+}
+
+fetchStatusClass(data:any){
+ if(data.enabled===true){return "fa fa-toggle-on";} else {return "fa fa-toggle-off";};
+}
   clearCache() {
     this.toggleService.invalidateCache()
       .subscribe(

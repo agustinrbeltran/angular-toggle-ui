@@ -5,59 +5,85 @@
     </div>
     <div class="card-body">
       <h4 class="card-title">Select and update specific toggle</h4>
-
       <div *ngIf="res; then ThenBlock; else ElseBlock">
       </div>
-
       <ng-template #ThenBlock>
-        <p class="card-text">
-          Environment: {{res.environment}}
-          <br>
-          Cluster: {{res.cluster}}
-          <br>
-          App Version: {{res.applicationVersion}}
-        </p>
-        <table class="table table-hover">
-          <thead>
-            <tr>
-              <th>Toggle Name</th>
-              <th>Description</th>
-              <th>Type</th>
-              <th>Constraints</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let toggle of res.toggles">
-              <td>{{toggle.feature}}</td>
-              <td>{{toggle.description}}</td>
-              <td>{{toggle.type}}</td>
-              <td *ngIf='toggle.type === "on-off" '>
-                <button 
-                  class="fa" 
-                  [class.fa-toggle-on]="toggle.enabled" 
-                  [class.fa-toggle-off]="!toggle.enabled" 
-                  type="button"
-                  aria-hidden="true"
-                >
-                </button>
-              </td>
-              <td *ngIf='toggle.type !== "on-off" '>
-                {{toggle.constraints | prettyjson }}
-              </td>
-              <td>
-                <button type="button" class="btn btn-sm btn-primary waves-light" mdbWavesEffect>
-                  <i class="fa fa-edit" aria-hidden="true"></i>
-                  edit
-                </button>
-                <button type="button" class="btn btn-sm btn-primary waves-light" mdbWavesEffect>
-                  <i class="fa fa-check-square-o" aria-hidden="true"></i>
-                  test
-                </button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+        <div class="card-text pull-right ">
+          <strong> Environment: </strong> {{res.environment}}
+          <strong> Cluster: </strong> {{res.cluster}}
+          <strong> App Version: </strong> {{res.applicationVersion}}
+        </div>
+        <div class="clearfix "></div>
+        <hr>
+        <div class="kng-cards-container ng-scope row toggle-kards">
+          <div *ngFor="let toggle of res.toggles" size="sm" ng-repeat="card in vm.smallCards" class="ng-scope ng-isolate-scope col-md-6 col-sm-6 col-xs-12 kng-cards-vertical size-sm">
+            <div class="kng-cards kng-cards-sm kng-cards-md status-{{toggle.type}}">
+              <div ng-class="{'kng-card-disabled': kngDisabled}" ng-disabled="kngDisabled" class="kng-cards-item size-sm" ng-transclude=""
+                aria-disabled="false">
+                <div class="card-header success-color white-text">
+                  <div class="icon-toggle">
+                    <i *ngIf='toggle.type === "blacklist"' class="kng-icon kng-icon-minus" aria-hidden="true"></i>
+                    <i *ngIf='toggle.type === "whitelist"' class="kng-icon kng-icon-chevron-right" aria-hidden="true"></i>
+                    <i *ngIf='toggle.type === "on-off"' class="fa fa-toggle-on" aria-hidden="true"></i>
+                  </div>
+                  <div class="title-toggle">
+                    {{toggle.feature}}
+                  </div>
+                </div>
+                <div class="col-xs-12 kng-cards-contents ng-scope">
+                  <div class="row kng-cards-details ">
+                    <div class="col-xs-6 col-md-6 pull-left sub-header-separator content-description">
+                      <div class="row kng-cards-info card-subtitle">
+                        <h4 class="ng-binding">Type:  {{toggle.type}} Toggle</h4>
+                      </div>
+                      <strong>Description: </strong>
+                      <br>{{toggle.description}}
+                      <div class="row kng-cards-info nav-card">
+                        <button type="button" class="btn btn-ins waves-effect waves-light btn-sm">
+                          <i class="fa fa-edit" aria-hidden="true"></i> edit
+                        </button>
+                        <button type="button" class="btn btn-ins waves-effect waves-light btn-sm">
+                          <i class="fa fa-edit" aria-hidden="true"></i> test
+                        </button>
+                      </div>
+                    </div>
+                    <div *ngIf='toggle.type != "on-off"' class="col-xs-6 col-md-6 pull-right sub-header-separator list-container">
+                      <span>
+                        <strong>Constraints: </strong>
+                      </span>
+                      <div class="ulist">
+                        <ul class="list-group">
+                          <li *ngFor="let constraint of fetchConstraintName(toggle.constraints)" class="list-group-item">
+                              <i class="fa fa-th" aria-hidden="true"></i>
+                            <span class="constraint-title"> {{constraint}} </span>
+                            <ul class="list-group" *ngIf='toggle.type != "on-off"'>
+                              <li class="list-group-item" *ngFor="let constrow of toggle.constraints[constraint]">
+                                <i class="fa fa-ellipsis-v" aria-hidden="true"></i> {{constrow}}
+                              </li>
+                            </ul>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div *ngIf='toggle.type == "on-off"' class="col-xs-6 col-md-6 pull-right sub-header-separator status-container">
+                      <span>
+                        <strong></strong>
+                      </span>
+                      <div class="onoff-container pull-right">
+                        <h1>
+                          <span *ngIf="toggle.enabled===false" class="statusOff"> OFF</span>
+                          <i *ngIf='toggle.type === "on-off"' [ngClass]="fetchStatusClass(toggle)" aria-hidden="true"></i>
+                          <span *ngIf="toggle.enabled===true" class="statusOn"> ON</span>
+                        </h1>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </ng-template>
       <ng-template #ElseBlock>
         <div>
