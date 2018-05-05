@@ -7,14 +7,16 @@ import { TogglesComponent } from './components/toggles/toggles.component';
 
 import { ToggleService } from './services/toggle.service';
 import { SharedModule } from '../shared/shared.module';
-import { TestFormComponent } from './components/test-form/test-form.component';
+import { TestToggleFormComponent } from './components/test-toggle-form/test-toggle-form.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
     declarations: [
         TogglesComponent,
-        TestFormComponent
+        TestToggleFormComponent
     ],
     imports: [
+        FormsModule,
         CommonModule,
         ToastrModule.forRoot({
             closeButton: true,

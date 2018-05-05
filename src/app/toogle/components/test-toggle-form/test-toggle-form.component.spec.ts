@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TestFormComponent } from './test-form.component';
+import { TestToggleFormComponent } from './test-toggle-form.component';
 
-describe('TestFormComponent', () => {
-  let component: TestFormComponent;
-  let fixture: ComponentFixture<TestFormComponent>;
+describe('TestToggleFormComponent', () => {
+  let component: TestToggleFormComponent;
+  let fixture: ComponentFixture<TestToggleFormComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TestFormComponent ]
+      declarations: [ TestToggleFormComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TestFormComponent);
+    fixture = TestBed.createComponent(TestToggleFormComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

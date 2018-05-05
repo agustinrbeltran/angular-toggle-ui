@@ -1,7 +1,7 @@
 import { Injectable, Inject } from '@angular/core';
 import { HttpClient, HttpHandler,HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
-import { TogglesResponse } from '../components/domain/toggles-response';
+import { TogglesResponse } from '../domain/toggles-response';
 
 @Injectable()
 export class ToggleService {
