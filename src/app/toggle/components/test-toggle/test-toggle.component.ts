@@ -1,22 +1,21 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { Toggle } from '../../domain/toggle';
 import { ToggleService } from '../../services/toggle.service';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
-  selector: 'app-toggle-test',
-  templateUrl: './toggle-test.component.html',
-  styleUrls: ['./toggle-test.component.scss']
+  selector: 'app-test-toggle',
+  templateUrl: './test-toggle.component.html',
+  styleUrls: ['./test-toggle.component.scss']
 })
-export class ToggleTestComponent {
+export class TestToggleComponent {
 
   @Input() toggle: Toggle;
+  @ViewChild('info') public infoModal;
   public constraints: Map<string, string>;
-
   public res: any;
   public error: any;
-
-  public message: boolean;
+  public message= "";
 
   constructor(private toggleService: ToggleService, private toastr: ToastrService) { }
 
@@ -29,7 +28,9 @@ export class ToggleTestComponent {
       .subscribe(
         (res) => {
           this.res = res;
-          this.message = res.enabled;
+          let aux = res.enabled ? "enabled" : "disable";
+          this.message = " The toggle for those contraints is " + aux;
+          this.infoModal.show();
           this.toastr.success('Toggle test data fetched!');
         },
         (err) => {

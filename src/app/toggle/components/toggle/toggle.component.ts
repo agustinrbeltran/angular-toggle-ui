@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ViewChild } from '@angular/core';
 import { Toggle } from '../../domain/toggle';
 
 @Component({
@@ -8,10 +8,20 @@ import { Toggle } from '../../domain/toggle';
 })
 export class ToggleComponent {
 
-  @Input() toggle:Toggle;
+  @Input() toggle: Toggle;
+  @ViewChild('test') public testModal;
+  @ViewChild('edit') public editModal;
 
   getKeys(map) {
     return Array.from(map.keys());
   }
-  
+
+  showEditModal(){
+    this.editModal.show();
+  }
+
+  showTestModal(){
+    this.testModal.show();
+  }
+
 }

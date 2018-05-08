@@ -5,11 +5,11 @@ import { Toggle } from '../../domain/toggle';
 import { Deployment } from '../../domain/deployment';
 
 @Component({
-  selector: 'app-toggles',
-  templateUrl: './toggles.component.html',
-  styleUrls: ['./toggles.component.scss']
+  selector: 'app-toggle-container',
+  templateUrl: './toggle-container.component.html',
+  styleUrls: ['./toggle-container.component.scss']
 })
-export class TogglesComponent implements OnInit {
+export class ToggleContainerComponent implements OnInit {
 
   public toggles: Toggle[];
   public error: any;

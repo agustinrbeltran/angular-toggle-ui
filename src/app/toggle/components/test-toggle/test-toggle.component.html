@@ -4,10 +4,13 @@
     <ng-template #ThenBlock>
         <h2>Constraints for {{toggle.feature}}</h2>
         <app-constraints-form (const)="updateConstraints($event)"></app-constraints-form>
-        <p>{{message}}</p>
         <button (click)="testToggle()" type="submit" class="btn btn-success">Test</button>
     </ng-template>
     <ng-template #ElseBlock>
         <app-on-off-icon enabled="toggle.enabled"></app-on-off-icon>
     </ng-template>
 </div>
+
+<app-custom-modal #info title="Test Info">
+    <p>{{message}}</p>
+</app-custom-modal>

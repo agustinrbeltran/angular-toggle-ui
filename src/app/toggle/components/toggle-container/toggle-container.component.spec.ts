@@ -1,19 +1,19 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { TogglesComponent } from './toggles.component';
+import { ToggleContainerComponent } from './toggle-container.component';
 
-describe('TogglesComponent', () => {
-  let component: TogglesComponent;
-  let fixture: ComponentFixture<TogglesComponent>;
+describe('ToggleContainerComponent', () => {
+  let component: ToggleContainerComponent;
+  let fixture: ComponentFixture<ToggleContainerComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TogglesComponent ]
+      declarations: [ ToggleContainerComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TogglesComponent);
+    fixture = TestBed.createComponent(ToggleContainerComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

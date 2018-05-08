@@ -3,14 +3,12 @@ import { CommonModule } from '@angular/common';
 import { PrettyJsonPipe } from './utils/prettyjson.pipe';
 import { CustomModalComponent } from './components/custom-modal/custom-modal.component';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
-import { OnOffIconComponent } from './components/on-off-icon/on-off-icon.component';
 
 
 @NgModule({
   declarations: [
     PrettyJsonPipe,
-    CustomModalComponent,
-    OnOffIconComponent
+    CustomModalComponent
   ],
   imports: [
     CommonModule,
@@ -18,8 +16,7 @@ import { OnOffIconComponent } from './components/on-off-icon/on-off-icon.compone
   ],
   exports: [
     PrettyJsonPipe,
-    CustomModalComponent,
-    OnOffIconComponent
+    CustomModalComponent
   ]
 })
 export class SharedModule { }

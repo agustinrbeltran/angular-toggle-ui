@@ -1,5 +1,6 @@
 <div class="kng-cards kng-cards-sm kng-cards-md status-{{toggle.type}}">
-  <div ng-class="{'kng-card-disabled': kngDisabled}" ng-disabled="kngDisabled" class="kng-cards-item size-sm" ng-transclude="" aria-disabled="false">
+  <div ng-class="{'kng-card-disabled': kngDisabled}" ng-disabled="kngDisabled" class="kng-cards-item size-sm" ng-transclude=""
+    aria-disabled="false">
     <div class="card-header success-color white-text">
       <div class="icon-toggle">
         <i *ngIf='toggle.type === "blacklist"' class="kng-icon kng-icon-minus" aria-hidden="true"></i>
@@ -19,12 +20,12 @@
           <strong>Description: </strong>
           <br>{{toggle.description}}
           <div class="row kng-cards-info nav-card">
-            <app-custom-modal title="Edit toggle" buttonLabel="edit">
-              <p>TODO: Implement Edit Form</p>
-            </app-custom-modal>
-            <app-custom-modal title="Test toggle" buttonLabel="test">
-              <app-toggle-test [toggle]="toggle"></app-toggle-test>
-            </app-custom-modal>
+            <button type="button" class="btn btn-ins waves-effect waves-light btn-sm" (click)="showEditModal()" mdbWavesEffect>
+              <i class="fa fa-edit" aria-hidden="true"></i> Edit
+            </button>
+            <button type="button" class="btn btn-ins waves-effect waves-light btn-sm" (click)="showTestModal()" mdbWavesEffect>
+              <i class="fa fa-edit" aria-hidden="true"></i> Test
+            </button>
           </div>
         </div>
         <div *ngIf='toggle.type != "on-off"' class="col-xs-6 col-md-6 pull-right sub-header-separator list-container">
@@ -55,3 +56,11 @@
     </div>
   </div>
 </div>
+
+<!-- Modals -->
+<app-custom-modal #edit title="Edit toggle">
+  <p>TODO: Implement Edit Form</p>
+</app-custom-modal>
+<app-custom-modal #test title="Test toggle">
+  <app-test-toggle [toggle]="toggle"></app-test-toggle>
+</app-custom-modal>

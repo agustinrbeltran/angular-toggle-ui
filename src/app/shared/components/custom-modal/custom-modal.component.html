@@ -1,8 +1,5 @@
-<button type="button" class="btn btn-ins waves-effect waves-light btn-sm" (click)="basicModal.show()" mdbWavesEffect>
-    <i class="fa fa-edit" aria-hidden="true"></i> {{buttonLabel}}
-</button>
-
-<div mdbModal #basicModal="mdb-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myBasicModalLabel" aria-hidden="true" [config]="{backdrop: false, ignoreBackdropClick: true}">
+<div mdbModal (onHide)="onHide($event)" #basicModal="mdb-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myBasicModalLabel"
+    aria-hidden="true" [config]="{backdrop: false, ignoreBackdropClick: true}">
     <div class="modal-dialog" role="document">
         <div class="modal-content modal-background">
             <div class="modal-header">

@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-custom-modal',
@@ -8,6 +8,10 @@ import { Component, Input } from '@angular/core';
 export class CustomModalComponent {
 
   @Input() title: string;
-  @Input() buttonLabel: string;  
+  @ViewChild('basicModal') public basicModal;
+
+  show(){
+    this.basicModal.show();
+  }
   
 }
