@@ -12,10 +12,12 @@ export class TestToggleComponent {
 
   @Input() toggle: Toggle;
   @ViewChild('info') public infoModal;
-  public constraints: Map<string, string>;
+  public constraints: Map<string, string> = new Map<string, string>();
+  public message= "";
+
+  //Responses
   public res: any;
   public error: any;
-  public message= "";
 
   constructor(private toggleService: ToggleService, private toastr: ToastrService) { }
 
@@ -28,7 +30,7 @@ export class TestToggleComponent {
       .subscribe(
         (res) => {
           this.res = res;
-          let aux = res.enabled ? "enabled" : "disable";
+          let aux = res.enabled ? "ENABLED" : "DISABLED";
           this.message = " The toggle for those contraints is " + aux;
           this.infoModal.show();
           this.toastr.success('Toggle test data fetched!');

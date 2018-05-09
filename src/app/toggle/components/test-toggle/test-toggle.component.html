@@ -3,11 +3,11 @@
     </div>
     <ng-template #ThenBlock>
         <h2>Constraints for {{toggle.feature}}</h2>
-        <app-constraints-form (const)="updateConstraints($event)"></app-constraints-form>
+        <app-constraints-form (constraintsEvent)="updateConstraints($event)"></app-constraints-form>
         <button (click)="testToggle()" type="submit" class="btn btn-success">Test</button>
     </ng-template>
     <ng-template #ElseBlock>
-        <app-on-off-icon enabled="toggle.enabled"></app-on-off-icon>
+        <button (click)="testToggle()" type="submit" class="btn btn-success">Test</button>
     </ng-template>
 </div>
 
