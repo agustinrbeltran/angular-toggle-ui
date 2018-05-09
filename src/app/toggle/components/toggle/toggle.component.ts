@@ -11,16 +11,23 @@ export class ToggleComponent {
   @Input() toggle: Toggle;
   @ViewChild('test') public testModal;
   @ViewChild('edit') public editModal;
+ 
+  testModalOptions: object = {
+    modalClasses: ['modal-dialog', 'modal-info', 'modal-lg']
+  };
 
+  editModalOptions: object = {
+    modalClasses: ['modal-dialog', 'modal-info', 'modal-lg']
+  };
   getKeys(map) {
     return Array.from(map.keys());
   }
 
-  showEditModal(){
+  showEditModal() {
     this.editModal.show();
   }
 
-  showTestModal(){
+  showTestModal() {
     this.testModal.show();
   }
 

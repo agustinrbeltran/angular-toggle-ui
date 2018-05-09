@@ -1,33 +1,37 @@
-<table class="table">
+ 
+<div  >
+    <form>
+        <div class="form-group">
+            <label>Name
+                <input type="text" class="form-control" name="name" [(ngModel)]="name" required>
+            </label>
+            <label>Value
+                <input type="text" class="form-control" name="value" [(ngModel)]="value" required>
+            </label>
+            <input type="submit" class="kng-button-secondary" (click)="addContraint()" value="Add Constraint">
+        </div>
+           </form>
+ 
+</div>
+<div *ngIf="getKeys(constraints)?.length > 0">
+
+<table class="table table-modal">
     <thead>
         <tr>
             <th>Name</th>
             <th>Value</th>
-            <th>#</th>
+            <th width="10"></th>
         </tr>
     </thead>
     <tbody>
         <tr *ngFor="let key of getKeys(constraints)">
-            <th>{{key}}</th>
-            <td>{{constraints.get(key)}}</td>
+            <th><div>{{key}}</div></th>
+            <td><div>{{constraints.get(key)}}</div></td>
             <td>
-                <button (click)="removeConstraint(key)" type="submit" class="fa fa-times button-border" aria-hidden="true">
-                </button>
+               <button title="Remove Constraint" (click)="removeConstraint(key)" type="button" class="kng-button-secondary kng-button-icon btn-icon"><i class="kng-icon kng-icon-dismiss-circle"></i> </button>
             </td>
         </tr>
     </tbody>
 </table>
+</div>
 
-<form>
-    <div class="form-group">
-        <label>Name</label>
-        <input type="text" class="form-control" name="name" [(ngModel)]="name" required>
-    </div>
-
-    <div class="form-group">
-        <label>Value</label>
-        <input type="text" class="form-control" name="value" [(ngModel)]="value" required>
-    </div>
-
-    <button type="submit" class="btn btn-default waves-light" (click)="addContraint()">Add constraint</button>
-</form>

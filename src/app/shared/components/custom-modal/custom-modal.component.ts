@@ -8,10 +8,22 @@ import { Component, Input, Output, EventEmitter, ViewChild } from '@angular/core
 export class CustomModalComponent {
 
   @Input() title: string;
+  @Input() params: any;
   @ViewChild('basicModal') public basicModal;
+  modalClasses: string;
+  modalDescription: string;
 
-  show(){
+  show() {
+    this.fetchParams();
     this.basicModal.show();
   }
-  
+
+  onInit() {
+
+
+  }
+  fetchParams() {
+    this.modalClasses = this.params.modalClasses;
+  }
+
 }

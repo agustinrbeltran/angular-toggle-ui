@@ -39,8 +39,6 @@ h4 {
     text-transform: capitalize;
 }
 
-.card-subtitle {}
-
 .sub-header-separator {
     margin-top: 9px;
 }
@@ -109,4 +107,20 @@ h4 {
 .constraint-title {
     text-transform: uppercase;
     font-weight: bolder;
+}
+
+.constraint-list ul li{
+
+    padding-left: 0px!important;
+}
+.constraint-value{
+
+    float:right;
+    width:190px;
+}
+.btn-header{
+
+    margin-top:4px;
+    margin-right:5px;
+    margin-left:3px;
 }

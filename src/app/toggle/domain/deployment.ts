@@ -4,5 +4,5 @@ export class Deployment {
         public cluster,
         public application,
         public version,
-    ){};
+    ) {}
 }

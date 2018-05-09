@@ -20,24 +20,24 @@ export class ToggleService {
 
   testToggle(featureToggle: string, constraints: Map<string, string>): Observable<any> {
     const headers = this._getHeaders();
-    const URL = this._getBaseUrl() + "/toggles/" + featureToggle + "/status?" + this._getQueryString(constraints);
+    const URL = this._getBaseUrl() + '/toggles/' + featureToggle + '/status?' + this._getQueryString(constraints);
     return this._http.get(URL, { headers });
   }
 
 
-  //Utils
+  // Utils
 
   public getToggleArray(res: any): Array<Toggle> {
-    let result = new Array<Toggle>();
+    const result = new Array<Toggle>();
 
     res.toggles.forEach(toggle => {
 
-      let tog = new Toggle(
+      const tog = new Toggle(
         toggle.type,
         toggle.feature,
         toggle.description);
 
-      if (toggle.type != "on-off") {
+      if (toggle.type !== 'on-off') {
         tog.constraints = Utils.objToStrMap(toggle.constraints);
       } else {
         tog.enabled = toggle.enabled;
@@ -68,12 +68,12 @@ export class ToggleService {
   }
 
   private _getQueryString(constraints: Map<string, string>): string {
-    let result = "";
-    let keys = Utils.getKeys(constraints);
+    let result = '';
+    const keys = Utils.getKeys(constraints);
 
     keys.forEach(key => {
-      let value = constraints.get((<string>key));
-      result += key + "=" + value + "&";
+      const value = constraints.get((<string>key));
+      result += key + '=' + value + '&';
     });
 
     result = result.substring(0, result.length - 1);

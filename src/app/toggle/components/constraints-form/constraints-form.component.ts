@@ -9,13 +9,13 @@ export class ConstraintsFormComponent implements OnDestroy {
 
   @Output() const: EventEmitter<Map<string, string>> = new EventEmitter<Map<string, string>>();
   public constraints: Map<string, string> = new Map<string, string>();
-  public name = "";
-  public value = "";
+  public name = '';
+  public value = '';
 
   addContraint() {
     this.constraints.set(this.name, this.value);
-    this.name = "";
-    this.value = "";
+    this.name = '';
+    this.value = '';
     this.const.next(this.constraints);
   }
 

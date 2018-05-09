@@ -15,8 +15,10 @@ export class TestToggleComponent {
   public constraints: Map<string, string>;
   public res: any;
   public error: any;
-  public message= "";
-
+  public message = '';
+  testResultModalOptions: object = {
+    headerClass: 'modal-success'
+  };
   constructor(private toggleService: ToggleService, private toastr: ToastrService) { }
 
   updateConstraints(constraints: Map<string, string>) {
@@ -28,8 +30,8 @@ export class TestToggleComponent {
       .subscribe(
         (res) => {
           this.res = res;
-          let aux = res.enabled ? "enabled" : "disable";
-          this.message = " The toggle for those contraints is " + aux;
+          const aux = res.enabled ? 'enabled' : 'disable';
+          this.message = ' The toggle for those contraints is ' + aux;
           this.infoModal.show();
           this.toastr.success('Toggle test data fetched!');
         },
