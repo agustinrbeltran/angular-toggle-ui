@@ -1,6 +1,6 @@
 <div mdbModal (onHide)="onHide($event)" #basicModal="mdb-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myBasicModalLabel"
-    aria-hidden="true" [config]="{backdrop: false, ignoreBackdropClick: true}">
-    <div class="modal-dialog" role="document">
+    aria-hidden="true" [config]="{backdrop: true, ignoreBackdropClick: true}">
+    <div  [ngClass]="modalClasses"   role="document">
         <div class="modal-content modal-background">
             <div class="modal-header">
                 <button type="button" class="close pull-right" aria-label="Close" (click)="basicModal.hide()">
@@ -11,8 +11,8 @@
             <div class="modal-body">
                 <ng-content></ng-content>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary waves-light" aria-label="Close" (click)="basicModal.hide()" mdbWavesEffect>Close</button>
+            <div class="modal-footer hidden">
+                <button type="button" class="btn btn-default waves-light" aria-label="Close" (click)="basicModal.hide()" mdbWavesEffect>Close</button>
             </div>
         </div>
     </div>

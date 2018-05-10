@@ -9,8 +9,8 @@ export class ConstraintsFormComponent implements OnDestroy,OnInit {
 
   @Output() constraintsEvent: EventEmitter<Map<string, string>> = new EventEmitter<Map<string, string>>();
   public constraints: Map<string, string> = new Map<string, string>();
-  public name = "";
-  public value = "";
+  public name = '';
+  public value = '';
 
   addContraint() {
     this.constraints.set(this.name, this.value);

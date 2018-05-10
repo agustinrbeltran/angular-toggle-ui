@@ -1,66 +1,67 @@
 <div class="kng-cards kng-cards-sm kng-cards-md status-{{toggle.type}}">
   <div ng-class="{'kng-card-disabled': kngDisabled}" ng-disabled="kngDisabled" class="kng-cards-item size-sm" ng-transclude=""
     aria-disabled="false">
+    <div class="pull-right">
+     
+
+      <button (click)="showEditModal()" type="button" class="btn-header kng-button-secondary kng-button-icon">
+        <i class="fa fa-edit" aria-hidden="true"></i> Edit
+      </button>
+      <button (click)="showTestModal()" type="button" class="btn-header kng-button-secondary kng-button-icon">
+          <i class="fa fa-eye" aria-hidden="true"></i>
+         Test
+        </button>
+
+    </div>
     <div class="card-header success-color white-text">
-      <div class="icon-toggle">
-        <i *ngIf='toggle.type === "blacklist"' class="kng-icon kng-icon-minus" aria-hidden="true"></i>
-        <i *ngIf='toggle.type === "whitelist"' class="kng-icon kng-icon-chevron-right" aria-hidden="true"></i>
-        <i *ngIf='toggle.type === "on-off"' class="fa fa-toggle-on" aria-hidden="true"></i>
-      </div>
       <div class="title-toggle">
         {{toggle.feature}}
       </div>
     </div>
+    <div class="clearfix"></div>
     <div class="col-xs-12 kng-cards-contents ng-scope">
       <div class="row kng-cards-details ">
         <div class="col-xs-6 col-md-6 pull-left sub-header-separator content-description">
           <div class="row kng-cards-info card-subtitle">
-            <h4 class="ng-binding">Type: {{toggle.type}}</h4>
+            <h4 class="ng-binding">
+              Type: {{toggle.type}}
+              <i *ngIf='toggle.type === "blacklist"' class="kng-icon kng-icon-minus" aria-hidden="true"></i>
+              <i *ngIf='toggle.type === "whitelist"' class="kng-icon kng-icon-chevron-right" aria-hidden="true"></i>
+              <i *ngIf='toggle.type === "on-off"' class="fa fa-toggle-on" aria-hidden="true"></i>
+            </h4>
           </div>
           <strong>Description: </strong>
           <br>{{toggle.description}}
-          <div class="row kng-cards-info nav-card">
-            <button type="button" class="btn btn-ins waves-effect waves-light btn-sm" (click)="showEditModal()" mdbWavesEffect>
-              <i class="fa fa-edit" aria-hidden="true"></i> Edit
-            </button>
-            <button type="button" class="btn btn-ins waves-effect waves-light btn-sm" (click)="showTestModal()" mdbWavesEffect>
-              <i class="fa fa-edit" aria-hidden="true"></i> Test
-            </button>
-          </div>
         </div>
         <div *ngIf='toggle.type != "on-off"' class="col-xs-6 col-md-6 pull-right sub-header-separator list-container">
           <span>
             <strong>Constraints: </strong>
           </span>
-          <div class="ulist">
+          <div class="ulist constraint-list">
             <ul class="list-group">
               <li *ngFor="let key of getKeys(toggle.constraints)" class="list-group-item">
-                <i class="fa fa-th" aria-hidden="true"></i>
-                <span class="constraint-title"> {{key}} </span>
-                <ul class="list-group" *ngIf='toggle.type != "on-off"'>
-                  <li class="list-group-item" *ngFor="let value of toggle.constraints.get(key)">
-                    <i class="fa fa-ellipsis-v" aria-hidden="true"></i> {{value}}
-                  </li>
-                </ul>
+                <span class="constraint-title"> {{key}} : </span>
+                <div *ngIf='toggle.type != "on-off"'class="constraint-value constraint-data" >
+                  <span *ngFor="let value of toggle.constraints.get(key)" class="badge badge-default">{{value}}</span>  
+                </div>
               </li>
             </ul>
           </div>
-        </div>
-        <div *ngIf='toggle.type == "on-off"' class="col-xs-6 col-md-6 pull-right sub-header-separator status-container">
-          <span>
-            <strong></strong>
-          </span>
-          <app-on-off-icon enabled=toggle.enabled></app-on-off-icon>
+          <div *ngIf='toggle.type == "on-off"' class="col-xs-6 col-md-6 pull-right sub-header-separator status-container">
+            <span>
+              <strong></strong>
+            </span>
+            <app-on-off-icon enabled=toggle.enabled></app-on-off-icon>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
 
-<!-- Modals -->
-<app-custom-modal #edit title="Edit toggle">
-  <p>TODO: Implement Edit Form</p>
-</app-custom-modal>
-<app-custom-modal #test title="Test toggle">
-  <app-test-toggle [toggle]="toggle"></app-test-toggle>
-</app-custom-modal>
+  <!-- Modals -->
+  <app-custom-modal #edit [title]="toggle.feature" [params]="editModalOptions">
+    <p>TODO: Implement Edit Form</p>
+  </app-custom-modal>
+  <app-custom-modal #test [title]="toggle.feature" [params]="testModalOptions">
+    <app-test-toggle [toggle]="toggle" ></app-test-toggle>
+  </app-custom-modal>

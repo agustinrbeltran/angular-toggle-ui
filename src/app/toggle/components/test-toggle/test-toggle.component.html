@@ -2,15 +2,22 @@
     <div *ngIf="toggle.type!=='on-off'; then ThenBlock; else ElseBlock">
     </div>
     <ng-template #ThenBlock>
+<<<<<<< HEAD
         <h2>Constraints for {{toggle.feature}}</h2>
         <app-constraints-form (constraintsEvent)="updateConstraints($event)"></app-constraints-form>
         <button (click)="testToggle()" type="submit" class="btn btn-success">Test</button>
+=======
+        <app-constraints-form (const)="updateConstraints($event)"></app-constraints-form>
+        <hr>
+        <button (click)="testToggle()" type="button" class="kng-button-primary-blue kng-button-icon pull-right">
+                <i class="fa fa-eye" aria-hidden="true"></i> Test toggle</button>
+>>>>>>> develop-S-428834-ui-styles-fix
     </ng-template>
     <ng-template #ElseBlock>
         <button (click)="testToggle()" type="submit" class="btn btn-success">Test</button>
     </ng-template>
 </div>
 
-<app-custom-modal #info title="Test Info">
+<app-custom-modal #info title="Test Info" [params]="testResultModalOptions">
     <p>{{message}}</p>
 </app-custom-modal>
