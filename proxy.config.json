@@ -1,6 +1,6 @@
 {
     "/" : {
-        "target" : "https://2de6fia9df.execute-api.us-east-1.amazonaws.com",
+        "target" : "https://69pytcbc32.execute-api.us-east-1.amazonaws.com",
         "secure" : false,
         "logLevel" : "debug",
         "changeOrigin": true

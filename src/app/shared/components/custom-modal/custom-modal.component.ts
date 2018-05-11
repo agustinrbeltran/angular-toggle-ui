@@ -1,4 +1,5 @@
 import { Component, Input, Output, EventEmitter, ViewChild } from '@angular/core';
+import { CustomModalOptions } from '../../domain/custom-modal-options';
 
 @Component({
   selector: 'app-custom-modal',
@@ -8,22 +9,11 @@ import { Component, Input, Output, EventEmitter, ViewChild } from '@angular/core
 export class CustomModalComponent {
 
   @Input() title: string;
-  @Input() params: any;
-  @ViewChild('basicModal') public basicModal;
-  modalClasses: string;
-  modalDescription: string;
+  @Input() options: CustomModalOptions;
+  @ViewChild('basicModal') basicModal;
 
   show() {
-    this.fetchParams();
     this.basicModal.show();
-  }
-
-  onInit() {
-
-
-  }
-  fetchParams() {
-    this.modalClasses = this.params.modalClasses;
   }
 
 }

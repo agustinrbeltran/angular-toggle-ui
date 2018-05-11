@@ -1,5 +1,6 @@
 import { Component, Input, ViewChild } from '@angular/core';
 import { Toggle } from '../../domain/toggle';
+import { CustomModalOptions, Style } from '../../../shared/domain/custom-modal-options';
 
 @Component({
   selector: 'app-toggle',
@@ -9,16 +10,22 @@ import { Toggle } from '../../domain/toggle';
 export class ToggleComponent {
 
   @Input() toggle: Toggle;
-  @ViewChild('test') public testModal;
-  @ViewChild('edit') public editModal;
- 
-  testModalOptions: object = {
-    modalClasses: ['modal-dialog', 'modal-info', 'modal-lg']
-  };
+  @ViewChild('test') testModal;
+  @ViewChild('edit') editModal;
+  testModalOptions: CustomModalOptions; 
+  editModalOptions: CustomModalOptions; 
 
-  editModalOptions: object = {
-    modalClasses: ['modal-dialog', 'modal-info', 'modal-lg']
-  };
+  constructor(){
+    this.testModalOptions = new CustomModalOptions().
+      withStyle(Style.INFO).
+      withStyle(Style.LG).
+      hideFooter();
+    this.editModalOptions = new CustomModalOptions().
+      withStyle(Style.INFO).
+      withStyle(Style.LG).
+      hideFooter();
+  }
+
   getKeys(map) {
     return Array.from(map.keys());
   }

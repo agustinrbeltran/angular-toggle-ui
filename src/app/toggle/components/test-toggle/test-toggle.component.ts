@@ -2,6 +2,7 @@ import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { Toggle } from '../../domain/toggle';
 import { ToggleService } from '../../services/toggle.service';
 import { ToastrService } from 'ngx-toastr';
+import { CustomModalOptions, Style } from '../../../shared/domain/custom-modal-options';
 
 @Component({
   selector: 'app-test-toggle',
@@ -11,18 +12,19 @@ import { ToastrService } from 'ngx-toastr';
 export class TestToggleComponent {
 
   @Input() toggle: Toggle;
-  @ViewChild('info') public infoModal;
-  public constraints: Map<string, string> = new Map<string, string>();
-  public message= "";
-
+  @ViewChild('info') infoModal;
+  testResultModalOptions: CustomModalOptions;
+  constraints: Map<string, string>;
+  message :string;
   //Responses
-  public res: any;
-  public error: any;
-  public message = '';
-  testResultModalOptions: object = {
-    headerClass: 'modal-success'
-  };
-  constructor(private toggleService: ToggleService, private toastr: ToastrService) { }
+  res: any;
+  error: any;
+
+  constructor(private toggleService: ToggleService, private toastr: ToastrService) { 
+    this.message = '';
+    this.constraints = new Map<string, string>();
+    this.testResultModalOptions = new CustomModalOptions();
+  }
 
   updateConstraints(constraints: Map<string, string>) {
     this.constraints = constraints;
@@ -35,11 +37,15 @@ export class TestToggleComponent {
           this.res = res;
           const aux = res.enabled ? 'enabled' : 'disable';
           this.message = ' The toggle for those contraints is ' + aux;
+          this.testResultModalOptions.withStyle(Style.SUCCESS).hideFooter();
           this.infoModal.show();
           this.toastr.success('Toggle test data fetched!');
         },
         (err) => {
           this.error = err;
+          this.message = this.error.error;
+          this.testResultModalOptions.withStyle(Style.WARNING).hideFooter();
+          this.infoModal.show();
           this.toastr.error('Error Fetching Toggles data');
         }
       );

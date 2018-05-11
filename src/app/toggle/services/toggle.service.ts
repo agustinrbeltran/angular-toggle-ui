@@ -8,9 +8,11 @@ import { Deployment } from '../domain/deployment';
 @Injectable()
 export class ToggleService {
 
-  public deployment: Deployment = new Deployment('latest', 'a', 'sbc-wdw', '0.1');
+  deployment: Deployment;
 
-  constructor(private _http: HttpClient) { }
+  constructor(private _http: HttpClient) { 
+    this.deployment = new Deployment('latest', 'a', 'sbc-wdw', '0.1');
+  }
 
   getToggles(): Observable<any> {
     const headers = this._getHeaders();

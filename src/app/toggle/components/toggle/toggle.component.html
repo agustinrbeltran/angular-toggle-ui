@@ -2,15 +2,15 @@
   <div ng-class="{'kng-card-disabled': kngDisabled}" ng-disabled="kngDisabled" class="kng-cards-item size-sm" ng-transclude=""
     aria-disabled="false">
     <div class="pull-right">
-     
 
       <button (click)="showEditModal()" type="button" class="btn-header kng-button-secondary kng-button-icon">
-        <i class="fa fa-edit" aria-hidden="true"></i> Edit
+        <i class="fa fa-edit" aria-hidden="true"></i> 
+        Edit
       </button>
       <button (click)="showTestModal()" type="button" class="btn-header kng-button-secondary kng-button-icon">
-          <i class="fa fa-eye" aria-hidden="true"></i>
-         Test
-        </button>
+        <i class="fa fa-eye" aria-hidden="true"></i>
+        Test
+      </button>
 
     </div>
     <div class="card-header success-color white-text">
@@ -41,8 +41,8 @@
             <ul class="list-group">
               <li *ngFor="let key of getKeys(toggle.constraints)" class="list-group-item">
                 <span class="constraint-title"> {{key}} : </span>
-                <div *ngIf='toggle.type != "on-off"'class="constraint-value constraint-data" >
-                  <span *ngFor="let value of toggle.constraints.get(key)" class="badge badge-default">{{value}}</span>  
+                <div *ngIf='toggle.type != "on-off"' class="constraint-value constraint-data">
+                  <span *ngFor="let value of toggle.constraints.get(key)" class="badge badge-default">{{value}}</span>
                 </div>
               </li>
             </ul>
@@ -59,9 +59,9 @@
   </div>
 
   <!-- Modals -->
-  <app-custom-modal #edit [title]="toggle.feature" [params]="editModalOptions">
+  <app-custom-modal #edit [title]="toggle.feature" [options]="editModalOptions">
     <p>TODO: Implement Edit Form</p>
   </app-custom-modal>
-  <app-custom-modal #test [title]="toggle.feature" [params]="testModalOptions">
-    <app-test-toggle [toggle]="toggle" ></app-test-toggle>
+  <app-custom-modal #test [title]="toggle.feature" [options]="testModalOptions">
+    <app-test-toggle [toggle]="toggle"></app-test-toggle>
   </app-custom-modal>
