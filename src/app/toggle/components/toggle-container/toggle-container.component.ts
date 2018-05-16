@@ -11,8 +11,8 @@ import { Deployment } from '../../domain/deployment';
 })
 export class ToggleContainerComponent implements OnInit {
 
-    public toggles: Toggle[];
-    public error: any;
+    toggles: Toggle[];
+    error: any;
     mocexample: any = {
         'applicationName': 'sbc-wdw',
         'applicationVersion': '0.1',
@@ -51,8 +51,8 @@ export class ToggleContainerComponent implements OnInit {
     constructor(private toggleService: ToggleService, private toastr: ToastrService) { }
 
     ngOnInit() {
-        //this.getToggles();
-        this.toggles = this.toggleService.getToggleArray(this.mocexample);
+        this.getToggles();
+        //this.toggles = this.toggleService.getToggleArray(this.mocexample);
     }
 
     getToggles() {

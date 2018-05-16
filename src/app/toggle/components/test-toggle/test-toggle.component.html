@@ -2,7 +2,7 @@
     <div *ngIf="toggle.type!=='on-off'; then ThenBlock; else ElseBlock">
     </div>
     <ng-template #ThenBlock>
-        <app-constraints-form (const)="updateConstraints($event)"></app-constraints-form>
+        <app-constraints-form (constraintsEvent)="updateConstraints($event)"></app-constraints-form>
         <hr>
         <button (click)="testToggle()" type="button" class="kng-button-primary-blue kng-button-icon pull-right">
             <i class="fa fa-eye" aria-hidden="true"></i> 

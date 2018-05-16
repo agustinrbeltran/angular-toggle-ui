@@ -1,5 +1,5 @@
 export class Utils {
-    
+
     public static serializer() {
         const stack: any[] = [];
         const keys: string[] = [];
@@ -35,7 +35,25 @@ export class Utils {
         return strMap;
     }
 
+    public static strMapToObj(strMap) {
+        let obj = Object.create(null);
+        for (let [k, v] of strMap) {
+            // We don’t escape the key '__proto__'
+            // which can cause problems on older engines
+            obj[k] = v;
+        }
+        return obj;
+    }
+
     public static getKeys(map) {
         return Array.from(map.keys());
+    }
+
+    public static strMapToJson(strMap) {
+        return JSON.stringify(Utils.strMapToObj(strMap));
+    }
+
+    public static jsonToStrMap(jsonStr) {
+        return Utils.objToStrMap(JSON.parse(jsonStr));
     }
 }

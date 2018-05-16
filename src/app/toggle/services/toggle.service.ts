@@ -15,15 +15,17 @@ export class ToggleService {
   }
 
   getToggles(): Observable<any> {
-    const headers = this._getHeaders();
     const URL = this._getBaseUrl();
-    return this._http.get(URL, { headers });
+    return this._http.get(URL);
   }
 
   testToggle(featureToggle: string, constraints: Map<string, string>): Observable<any> {
-    const headers = this._getHeaders();
     const URL = this._getBaseUrl() + '/toggles/' + featureToggle + '/status?' + this._getQueryString(constraints);
-    return this._http.get(URL, { headers });
+    return this._http.get(URL);
+  }
+
+  editToggle(toggle: Toggle){
+
   }
 
 

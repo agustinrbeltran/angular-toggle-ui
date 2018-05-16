@@ -35,16 +35,16 @@ export class TestToggleComponent {
       .subscribe(
         (res) => {
           this.res = res;
-          const aux = res.enabled ? 'enabled' : 'disable';
+          const aux = res.enabled ? 'ENABLED' : 'DISABLED';
           this.message = ' The toggle for those contraints is ' + aux;
-          this.testResultModalOptions.withStyle(Style.SUCCESS).hideFooter();
+          this.testResultModalOptions.withStyle(Style.SUCCESS);
           this.infoModal.show();
           this.toastr.success('Toggle test data fetched!');
         },
         (err) => {
           this.error = err;
           this.message = this.error.error;
-          this.testResultModalOptions.withStyle(Style.WARNING).hideFooter();
+          this.testResultModalOptions.withStyle(Style.WARNING);
           this.infoModal.show();
           this.toastr.error('Error Fetching Toggles data');
         }

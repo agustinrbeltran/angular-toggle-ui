@@ -18,12 +18,10 @@ export class ToggleComponent {
   constructor(){
     this.testModalOptions = new CustomModalOptions().
       withStyle(Style.INFO).
-      withStyle(Style.LG).
-      hideFooter();
+      withStyle(Style.LG);
     this.editModalOptions = new CustomModalOptions().
       withStyle(Style.INFO).
-      withStyle(Style.LG).
-      hideFooter();
+      withStyle(Style.LG);
   }
 
   getKeys(map) {

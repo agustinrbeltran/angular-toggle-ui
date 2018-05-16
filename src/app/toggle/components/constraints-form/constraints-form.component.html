@@ -1,5 +1,4 @@
- 
-<div  >
+<div>
     <form>
         <div class="form-group">
             <label>Name
@@ -10,28 +9,33 @@
             </label>
             <input type="submit" class="kng-button-secondary" (click)="addContraint()" value="Add Constraint">
         </div>
-           </form>
- 
+    </form>
+
 </div>
 <div *ngIf="getKeys(constraints)?.length > 0">
 
-<table class="table table-modal">
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Value</th>
-            <th width="10"></th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let key of getKeys(constraints)">
-            <th><div>{{key}}</div></th>
-            <td><div>{{constraints.get(key)}}</div></td>
-            <td>
-               <button title="Remove Constraint" (click)="removeConstraint(key)" type="button" class="kng-button-secondary kng-button-icon btn-icon"><i class="kng-icon kng-icon-dismiss-circle"></i> </button>
-            </td>
-        </tr>
-    </tbody>
-</table>
+    <table class="table table-modal">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Value</th>
+                <th width="10"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let key of getKeys(constraints)">
+                <th>
+                    <div>{{key}}</div>
+                </th>
+                <td>
+                    <div>{{constraints.get(key)}}</div>
+                </td>
+                <td>
+                    <button title="Remove Constraint" (click)="removeConstraint(key)" type="button" class="kng-button-secondary kng-button-icon btn-icon">
+                        <i class="kng-icon kng-icon-dismiss-circle"></i>
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </div>
-

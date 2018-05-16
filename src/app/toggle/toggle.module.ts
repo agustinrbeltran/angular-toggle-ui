@@ -10,6 +10,7 @@ import { ToggleComponent } from './components/toggle/toggle.component';
 import { OnOffIconComponent } from './components/on-off-icon/on-off-icon.component';
 import { ToggleContainerComponent } from './components/toggle-container/toggle-container.component';
 import { TestToggleComponent } from './components/test-toggle/test-toggle.component';
+import { EditToggleComponent } from './components/edit-toggle/edit-toggle.component';
 
 @NgModule({
     declarations: [
@@ -17,7 +18,8 @@ import { TestToggleComponent } from './components/test-toggle/test-toggle.compon
         TestToggleComponent,
         ConstraintsFormComponent,
         ToggleComponent,
-        OnOffIconComponent
+        OnOffIconComponent,
+        EditToggleComponent
     ],
     imports: [
         FormsModule,
