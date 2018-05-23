@@ -12,6 +12,7 @@ export class EditToggleComponent implements OnInit {
   selectValues: any;
   type:string;
   constraints: Map<string, string>;
+  enabled;
 
   constructor() {
     this.selectValues = [
@@ -20,15 +21,15 @@ export class EditToggleComponent implements OnInit {
       { value: 'blacklist', label: 'Blacklist' },
     ];
     this.constraints = new Map<string, string>();
-
   }
 
   ngOnInit(){
     this.type = this.toggle.type;
-
+    if (this.toggle.type == 'on-off') 
+      this.enabled = this.toggle.enabled;
   }
 
-  updateSelectedValue(value:string){
+  updateSelectedType(value:string){
     this.type = value;
   }
 
@@ -36,9 +37,13 @@ export class EditToggleComponent implements OnInit {
     this.constraints = constraints;
   }
 
+  updateSelectedOnOffState(enabled:boolean){
+    this.enabled = enabled;
+  }
 
   editToggle(){
-
+    console.log(this.enabled);
+    console.log(this.constraints);
   }
 
 }

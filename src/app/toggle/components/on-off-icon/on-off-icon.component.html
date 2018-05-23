@@ -1,7 +1,7 @@
 <div class="onoff-container pull-right">
   <h1>
       <span *ngIf="!enabled" class="statusOff"> OFF</span>
-      <i [ngClass]="class" aria-hidden="true"></i>
+      <i [ngClass]="class" (click)="changeState()" aria-hidden="true"></i>
       <span *ngIf="enabled" class="statusOn"> ON</span>
   </h1>
 </div>

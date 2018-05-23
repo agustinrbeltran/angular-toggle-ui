@@ -1,6 +1,6 @@
 <div>
     <label>Type: </label>
-    <app-select-form [selectValues]="selectValues" [defaultValue]="type" (selectedValue)="updateSelectedValue($event)"></app-select-form>
+    <app-select-form [selectValues]="selectValues" [defaultValue]="type" (selectedValue)="updateSelectedType($event)"></app-select-form>
 </div>
 
 <div class="container">
@@ -11,7 +11,7 @@
     </ng-template>
     <ng-template #ElseBlock>
         <div>
-            <app-on-off-icon [enabled]="toggle.enabled"></app-on-off-icon>
+            <app-on-off-icon [enabled]="toggle.enabled" (selectedValue)="updateSelectedOnOffState($event)"></app-on-off-icon>
         </div>
     </ng-template>
     <button (click)="editToggle()" type="submit" class="btn btn-success">Edit</button>
