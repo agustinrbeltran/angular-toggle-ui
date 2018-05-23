@@ -14,7 +14,7 @@ export class TestToggleComponent {
   @Input() toggle: Toggle;
   @ViewChild('info') infoModal;
   testResultModalOptions: CustomModalOptions;
-  constraints: Map<string, string>;
+  constraints: Map<string, Array<string>>;
   message :string;
   //Responses
   res: any;
@@ -22,11 +22,11 @@ export class TestToggleComponent {
 
   constructor(private toggleService: ToggleService, private toastr: ToastrService) { 
     this.message = '';
-    this.constraints = new Map<string, string>();
+    this.constraints = new Map<string, Array<string>>();
     this.testResultModalOptions = new CustomModalOptions();
   }
 
-  updateConstraints(constraints: Map<string, string>) {
+  updateConstraints(constraints: Map<string, Array<string>>) {
     this.constraints = constraints;
   }
 

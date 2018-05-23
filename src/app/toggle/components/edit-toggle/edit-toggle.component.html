@@ -7,7 +7,7 @@
     <div *ngIf="type!=='on-off'; then ThenBlock; else ElseBlock">
     </div>
     <ng-template #ThenBlock>
-        <app-constraints-form [constraints]="toggle.constraints" (constraintsEvent)="updateConstraints($event)"></app-constraints-form>
+        <app-constraints-form [constraints]="constraints" (constraintsEvent)="updateConstraints($event)"></app-constraints-form>
     </ng-template>
     <ng-template #ElseBlock>
         <div>

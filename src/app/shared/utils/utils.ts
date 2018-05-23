@@ -28,7 +28,7 @@ export class Utils {
     }
 
     public static objToStrMap(obj) {
-        let strMap = new Map<string, string>();
+        let strMap = new Map<string, Array<string>>();
         for (let k of Object.keys(obj)) {
             strMap.set(k, obj[k]);
         }

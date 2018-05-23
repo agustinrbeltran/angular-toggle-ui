@@ -28,7 +28,7 @@
                     <div>{{key}}</div>
                 </th>
                 <td>
-                    <div>{{constraints.get(key)}}</div>
+                    <div *ngFor="let value of constraints.get(key)">{{value}} </div>
                 </td>
                 <td>
                     <button title="Remove Constraint" (click)="removeConstraint(key)" type="button" class="kng-button-secondary kng-button-icon btn-icon">

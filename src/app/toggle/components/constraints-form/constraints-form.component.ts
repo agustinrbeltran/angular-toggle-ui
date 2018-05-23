@@ -7,14 +7,14 @@ import { Component, Output, EventEmitter, OnDestroy, OnInit, Input } from '@angu
 })
 export class ConstraintsFormComponent implements OnDestroy,OnInit {
 
-  @Output() constraintsEvent: EventEmitter<Map<string, string>>;
-  @Input() constraints: Map<string, string>;
+  @Output() constraintsEvent: EventEmitter<Map<string, Array<string>>>;
+  @Input() constraints: Map<string, Array<string>>;
   name: string;
   value: string;
 
   constructor(){
-    this.constraintsEvent = new EventEmitter<Map<string, string>>();
-    this.constraints = new Map<string, string>();
+    this.constraintsEvent = new EventEmitter<Map<string, Array<string>>>();
+    this.constraints = new Map<string, Array<string>>();
     this.name = '';
     this.value = '';
   }
@@ -28,7 +28,11 @@ export class ConstraintsFormComponent implements OnDestroy,OnInit {
   }
 
   addContraint() {
-    this.constraints.set(this.name, this.value);
+    if (this.constraints.get(this.name) != null){
+      this.constraints.get(this.name).push(this.value);
+    }else{
+      this.constraints.set(this.name, new Array<string>(this.value));
+    }
     this.name = "";
     this.value = "";
   }

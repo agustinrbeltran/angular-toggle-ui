@@ -9,6 +9,10 @@
             "constraints": {
                 "user": [
                     "CARDD054"
+                ],
+                "day": [
+                    "Monday",
+                    "Tuesday"
                 ]
             },
             "feature": "FUTURE_PAYMENT",
