@@ -12,6 +12,7 @@ import { ToggleContainerComponent } from './components/toggle-container/toggle-c
 import { TestToggleComponent } from './components/test-toggle/test-toggle.component';
 import { EditToggleComponent } from './components/edit-toggle/edit-toggle.component';
 
+
 @NgModule({
     declarations: [
         ToggleContainerComponent,

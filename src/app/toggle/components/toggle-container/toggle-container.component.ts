@@ -13,6 +13,7 @@ export class ToggleContainerComponent implements OnInit {
 
     toggles: Toggle[];
     error: any;
+    message:string;
     mocexample: any = {
         'applicationName': 'sbc-wdw',
         'applicationVersion': '0.1',
@@ -48,7 +49,9 @@ export class ToggleContainerComponent implements OnInit {
         ]
     };
     
-    constructor(private toggleService: ToggleService, private toastr: ToastrService) { }
+    constructor(private toggleService: ToggleService, private toastr: ToastrService) {
+        this.message ='';
+     }
 
     ngOnInit() {
         this.getToggles();
@@ -64,6 +67,7 @@ export class ToggleContainerComponent implements OnInit {
                 },
                 (err) => {
                     this.error = err;
+                    this.message = err.error;
                     this.toastr.error('Error Fetching Toggles data');
                 }
             );

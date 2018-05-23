@@ -1,0 +1,5 @@
+<select (change)="selectValue($event.target.value)">
+  <option *ngFor="let a of selectValues" value={{a.value}}  [selected]="defaultValue === a.value">
+      {{a.label}}
+  </option>
+</select>

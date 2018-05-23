@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter, OnDestroy, OnInit } from '@angular/core';
+import { Component, Output, EventEmitter, OnDestroy, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-constraints-form',
@@ -8,7 +8,7 @@ import { Component, Output, EventEmitter, OnDestroy, OnInit } from '@angular/cor
 export class ConstraintsFormComponent implements OnDestroy,OnInit {
 
   @Output() constraintsEvent: EventEmitter<Map<string, string>>;
-  constraints: Map<string, string>;
+  @Input() constraints: Map<string, string>;
   name: string;
   value: string;
 

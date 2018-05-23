@@ -1,3 +1,18 @@
-<p>
-  edit-toggle works!
-</p>
+<div>
+    <label>Type: </label>
+    <app-select-form [selectValues]="selectValues" [defaultValue]="type" (selectedValue)="updateSelectedValue($event)"></app-select-form>
+</div>
+
+<div class="container">
+    <div *ngIf="type!=='on-off'; then ThenBlock; else ElseBlock">
+    </div>
+    <ng-template #ThenBlock>
+        <app-constraints-form [constraints]="toggle.constraints" (constraintsEvent)="updateConstraints($event)"></app-constraints-form>
+    </ng-template>
+    <ng-template #ElseBlock>
+        <div>
+            <app-on-off-icon [enabled]="toggle.enabled"></app-on-off-icon>
+        </div>
+    </ng-template>
+    <button (click)="editToggle()" type="submit" class="btn btn-success">Edit</button>
+</div>

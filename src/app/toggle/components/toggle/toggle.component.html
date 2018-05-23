@@ -60,8 +60,9 @@
 
   <!-- Modals -->
   <app-custom-modal #edit [title]="toggle.feature" [options]="editModalOptions">
-    <app-edit-toggle></app-edit-toggle>
+    <app-edit-toggle [toggle]="toggle"></app-edit-toggle>
   </app-custom-modal>
   <app-custom-modal #test [title]="toggle.feature" [options]="testModalOptions">
     <app-test-toggle [toggle]="toggle"></app-test-toggle>
   </app-custom-modal>
+          

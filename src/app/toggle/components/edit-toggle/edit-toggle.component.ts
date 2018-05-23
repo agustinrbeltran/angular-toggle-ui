@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Toggle } from '../../domain/toggle';
 
 @Component({
   selector: 'app-edit-toggle',
@@ -7,9 +8,37 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EditToggleComponent implements OnInit {
 
-  constructor() { }
+  @Input() toggle: Toggle;
+  selectValues: any;
+  type:string;
+  constraints: Map<string, string>;
 
-  ngOnInit() {
+  constructor() {
+    this.selectValues = [
+      { value: 'on-off', label: 'On-Off' },
+      { value: 'whitelist', label: 'Whitelist' },
+      { value: 'blacklist', label: 'Blacklist' },
+    ];
+    this.constraints = new Map<string, string>();
+
+  }
+
+  ngOnInit(){
+    this.type = this.toggle.type;
+
+  }
+
+  updateSelectedValue(value:string){
+    this.type = value;
+  }
+
+  updateConstraints(constraints: Map<string, string>) {
+    this.constraints = constraints;
+  }
+
+
+  editToggle(){
+
   }
 
 }
