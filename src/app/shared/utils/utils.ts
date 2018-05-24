@@ -43,11 +43,7 @@ export class Utils {
             obj[k] = v;
         }
         return obj;
-    }
-
-    public static getKeys(map) {
-        return Array.from(map.keys());
-    }
+    }    
 
     public static strMapToJson(strMap) {
         return JSON.stringify(Utils.strMapToObj(strMap));
@@ -55,5 +51,17 @@ export class Utils {
 
     public static jsonToStrMap(jsonStr) {
         return Utils.objToStrMap(JSON.parse(jsonStr));
+    }
+
+    public static mapToObj(map:Map<any,any>):Object {
+        let obj = Object.create(null);
+        for (let k of this.getKeys(map)) {
+            obj[k.toString()] = map.get(k);
+        }
+        return obj;
+    }
+
+    public static getKeys(map) {
+        return Array.from(map.keys());
     }
 }

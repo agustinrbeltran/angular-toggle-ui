@@ -62,7 +62,7 @@ export class ToggleService {
     return this._http.get(URL);
   }
 
-  editToggle(newToggle: Toggle) {//: Observable<any> {
+  editToggle(newToggle: Toggle): Observable<any> {
     let toggles: Toggle[] = this.getToggleArray(this.mocResponse);
 
     //Find the old toggle
@@ -75,9 +75,12 @@ export class ToggleService {
     toggles.push(newToggle);
 
     let payload :any = {
-      toggles: toggles
+      toggles: Array()
     }
-    console.log(payload);
+
+    toggles.forEach(toggle =>{
+      payload.toggles.push(toggle.toObject());
+    });
 
     //Send a put request to update the toggle
     const URL = this._getBaseUrl();
@@ -114,23 +117,6 @@ export class ToggleService {
       if (toggle.feature == feature)
         return toggle;
     }
-
-  }
-
-  private _getTogglesArr(): Toggle[] {
-
-    let toggles: Toggle[];
-
-    this.getToggles().subscribe(
-      (res) => {
-        toggles = this.getToggleArray(res);
-      },
-      (err) => {
-        toggles = null;
-      }
-    );
-
-    return null;
 
   }
 

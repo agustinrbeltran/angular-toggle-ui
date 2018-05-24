@@ -1,6 +1,6 @@
-import { LinkedList } from 'angular-bootstrap-md/utils';
+import { Utils } from "../../shared/utils/utils";
 
-export class Toggle  {
+export class Toggle {
 
     public constraints: Map<string, Array<string>>;
     public enabled: boolean;
@@ -10,5 +10,28 @@ export class Toggle  {
         public feature: string,
         public description: string,
     ) { }
+
+    public toObject(): Object {
+
+        let obj: Object;
+
+        if (this.type != 'on-off') {
+            obj = {
+                type: this.type,
+                feature: this.feature,
+                description: this.description,
+                constraints: Utils.mapToObj(this.constraints)
+            };
+        } else {
+            obj = {
+                type: this.type,
+                feature: this.feature,
+                description: this.description,
+                enabled: this.enabled
+            };
+        }
+        return obj;
+    }
+
 
 }
