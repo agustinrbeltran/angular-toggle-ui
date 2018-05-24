@@ -1,15 +1,15 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
-import { Toggle } from '../domain/toggle';
+import { Toggle } from '../models/toggle.model';
 import { Utils } from '../../shared/utils/utils';
-import { Deployment } from '../domain/deployment';
+import { Deployment } from '../models/deployment.model';
 
 @Injectable()
 export class ToggleService {
 
   deployment: Deployment;
-  mocResponse: any = {
+  response: any = {
     "applicationName": "sbc-wdw",
     "applicationVersion": "0.1",
     "cluster": "a",
@@ -63,29 +63,9 @@ export class ToggleService {
   }
 
   editToggle(newToggle: Toggle): Observable<any> {
-    let toggles: Toggle[] = this.getToggleArray(this.mocResponse);
-
-    //Find the old toggle
-    let oldToggle: Toggle = this._findToggle(newToggle.feature, toggles);
-
-    // Remove the old toggle from array
-    toggles.splice(toggles.indexOf(oldToggle), 1);
-
-    //Insert the new toggle in the array 
-    toggles.push(newToggle);
-
-    let payload :any = {
-      toggles: Array()
-    }
-
-    toggles.forEach(toggle =>{
-      payload.toggles.push(toggle.toObject());
-    });
-
-    //Send a put request to update the toggle
+    let payload: Object = this._getPayload(newToggle);
     const URL = this._getBaseUrl();
     return this._http.put(URL, payload);
-
   }
 
 
@@ -111,6 +91,32 @@ export class ToggleService {
     return result;
   }
 
+  private _getPayload(newToggle: Toggle): Object {
+
+    let payload: any = {
+      toggles: Array()
+    }
+
+    let toggles: Toggle[];
+
+    toggles = this.getToggleArray(this.response);
+     
+    //Find the old toggle
+    let oldToggle: Toggle = this._findToggle(newToggle.feature, toggles);
+
+    // Remove the old toggle from array
+    toggles.splice(toggles.indexOf(oldToggle), 1);
+
+    //Insert the new toggle in the array 
+    toggles.push(newToggle);
+
+    toggles.forEach(toggle => {
+      payload.toggles.push(toggle.toObject());
+    });
+
+    return payload;
+  }
+
   private _findToggle(feature: string, toggles: Toggle[]): Toggle {
 
     for (let toggle of toggles) {
@@ -122,9 +128,7 @@ export class ToggleService {
 
   private _getHeaders(): HttpHeaders {
     const headers = new HttpHeaders();
-    headers.set('Access-Control-Allow-Origin', '*');
-    headers.append('Access-Control-Allow-Methods', 'GET');
-
+    headers.append('', '');
     return headers;
   }
 

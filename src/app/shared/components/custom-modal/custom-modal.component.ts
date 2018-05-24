@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter, ViewChild } from '@angular/core';
-import { CustomModalOptions } from '../../domain/custom-modal-options';
+import { CustomModalOptions } from '../../models/custom-modal-options.model';
 
 @Component({
   selector: 'app-custom-modal',
@@ -14,6 +14,10 @@ export class CustomModalComponent {
 
   show() {
     this.basicModal.show();
+  }
+
+  hide(){
+    this.basicModal.hide();
   }
 
 }

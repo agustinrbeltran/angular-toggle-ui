@@ -51,7 +51,7 @@
             <span>
               <strong></strong>
             </span>
-            <app-on-off-icon enabled=toggle.enabled></app-on-off-icon>
+            <app-on-off-button enabled=toggle.enabled></app-on-off-button>
           </div>
         </div>
       </div>
@@ -60,7 +60,7 @@
 
   <!-- Modals -->
   <app-custom-modal #edit [title]="toggle.feature" [options]="editModalOptions">
-    <app-edit-toggle [toggle]="toggle"></app-edit-toggle>
+    <app-edit-toggle (closeModal)="editModal.hide(); refreshParent();" [toggle]="toggle"></app-edit-toggle>
   </app-custom-modal>
   <app-custom-modal #test [title]="toggle.feature" [options]="testModalOptions">
     <app-test-toggle [toggle]="toggle"></app-test-toggle>

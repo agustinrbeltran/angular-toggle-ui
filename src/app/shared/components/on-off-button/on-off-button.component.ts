@@ -1,11 +1,11 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
-  selector: 'app-on-off-icon',
-  templateUrl: './on-off-icon.component.html',
-  styleUrls: ['./on-off-icon.component.scss']
+  selector: 'app-on-off-button',
+  templateUrl: './on-off-button.component.html',
+  styleUrls: ['./on-off-button.component.scss']
 })
-export class OnOffIconComponent implements OnInit {
+export class OnOffButtonComponent implements OnInit {
   
   @Output() selectedValue: EventEmitter<boolean>;
   @Input() enabled: boolean;

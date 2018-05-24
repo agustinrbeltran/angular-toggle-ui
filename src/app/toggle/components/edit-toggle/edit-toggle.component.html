@@ -11,7 +11,7 @@
     </ng-template>
     <ng-template #ElseBlock>
         <div>
-            <app-on-off-icon [enabled]="toggle.enabled" (selectedValue)="updateSelectedOnOffState($event)"></app-on-off-icon>
+            <app-on-off-button [enabled]="toggle.enabled" (selectedValue)="updateSelectedOnOffState($event)"></app-on-off-button>
         </div>
     </ng-template>
     <button (click)="editToggle()" type="submit" class="btn btn-success">Edit</button>

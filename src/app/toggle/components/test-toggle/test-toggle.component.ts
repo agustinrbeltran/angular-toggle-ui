@@ -1,8 +1,8 @@
 import { Component, OnInit, Input, ViewChild } from '@angular/core';
-import { Toggle } from '../../domain/toggle';
+import { Toggle } from '../../models/toggle.model';
 import { ToggleService } from '../../services/toggle.service';
 import { ToastrService } from 'ngx-toastr';
-import { CustomModalOptions, Style } from '../../../shared/domain/custom-modal-options';
+import { CustomModalOptions, Style } from '../../../shared/models/custom-modal-options.model';
 
 @Component({
   selector: 'app-test-toggle',

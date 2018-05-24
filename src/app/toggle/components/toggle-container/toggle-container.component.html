@@ -18,7 +18,7 @@
         <hr>
         <div class="kng-cards-container ng-scope row toggle-kards">
           <div *ngFor="let toggle of toggles" size="sm" ng-repeat="card in vm.smallCards" class="ng-scope ng-isolate-scope col-md-6 col-sm-6 col-xs-12 kng-cards-vertical size-sm">
-            <app-toggle [toggle]="toggle"></app-toggle>
+            <app-toggle (refresh)="getToggles()" [toggle]="toggle"></app-toggle>
           </div>
         </div>
       </ng-template>

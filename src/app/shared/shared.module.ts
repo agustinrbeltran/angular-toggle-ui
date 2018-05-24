@@ -4,12 +4,14 @@ import { PrettyJsonPipe } from './utils/prettyjson.pipe';
 import { CustomModalComponent } from './components/custom-modal/custom-modal.component';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { SelectFormComponent } from './components/select-form/select-form.component';
+import { OnOffButtonComponent } from './components/on-off-button/on-off-button.component';
 
 @NgModule({
   declarations: [
     PrettyJsonPipe,
     CustomModalComponent,
-    SelectFormComponent
+    SelectFormComponent,
+    OnOffButtonComponent
   ],
   imports: [
     CommonModule,
@@ -18,7 +20,8 @@ import { SelectFormComponent } from './components/select-form/select-form.compon
   exports: [
     PrettyJsonPipe,
     CustomModalComponent,
-    SelectFormComponent
+    SelectFormComponent,
+    OnOffButtonComponent
   ]
 })
 export class SharedModule { }

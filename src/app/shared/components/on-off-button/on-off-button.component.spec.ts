@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { OnOffIconComponent } from './on-off-icon.component';
+import { OnOffButtonComponent } from './on-off-button.component';
 
-describe('OnOffIconComponent', () => {
-  let component: OnOffIconComponent;
-  let fixture: ComponentFixture<OnOffIconComponent>;
+describe('OnOffButtonComponent', () => {
+  let component: OnOffButtonComponent;
+  let fixture: ComponentFixture<OnOffButtonComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ OnOffIconComponent ]
+      declarations: [ OnOffButtonComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(OnOffIconComponent);
+    fixture = TestBed.createComponent(OnOffButtonComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,6 +1,6 @@
-import { Component, Input, ViewChild } from '@angular/core';
-import { Toggle } from '../../domain/toggle';
-import { CustomModalOptions, Style } from '../../../shared/domain/custom-modal-options';
+import { Component, Input, ViewChild, Output, EventEmitter } from '@angular/core';
+import { Toggle } from '../../models/toggle.model';
+import { CustomModalOptions, Style } from '../../../shared/models/custom-modal-options.model';
 
 @Component({
   selector: 'app-toggle',
@@ -10,6 +10,7 @@ import { CustomModalOptions, Style } from '../../../shared/domain/custom-modal-o
 export class ToggleComponent {
 
   @Input() toggle: Toggle;
+  @Output() refresh: EventEmitter<any>;
   @ViewChild('test') testModal;
   @ViewChild('edit') editModal;
   testModalOptions: CustomModalOptions; 
@@ -22,6 +23,7 @@ export class ToggleComponent {
     this.editModalOptions = new CustomModalOptions().
       withStyle(Style.INFO).
       withStyle(Style.LG);
+    this.refresh = new EventEmitter<any>();
   }
 
   getKeys(map) {
@@ -34,6 +36,10 @@ export class ToggleComponent {
 
   showTestModal() {
     this.testModal.show();
+  }
+
+  refreshParent(){
+    this.refresh.next();
   }
 
 }

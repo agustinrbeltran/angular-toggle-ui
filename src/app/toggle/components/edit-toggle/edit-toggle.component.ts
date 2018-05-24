@@ -1,7 +1,8 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { Toggle } from '../../domain/toggle';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Toggle } from '../../models/toggle.model';
 import { ToastrService } from 'ngx-toastr';
 import { ToggleService } from '../../services/toggle.service';
+import { TOGGLE_TYPE } from '../../toggle.constants';
 
 @Component({
   selector: 'app-edit-toggle',
@@ -11,7 +12,10 @@ import { ToggleService } from '../../services/toggle.service';
 export class EditToggleComponent implements OnInit {
 
   @Input() toggle: Toggle;
+  @Output() closeModal: EventEmitter<any>;
+
   selectValues: any;
+  
   //Taken from the view
   type: string;
   constraints: Map<string, Array<string>>;
@@ -23,6 +27,7 @@ export class EditToggleComponent implements OnInit {
       { value: 'whitelist', label: 'Whitelist' },
       { value: 'blacklist', label: 'Blacklist' },
     ];
+    this.closeModal = new EventEmitter<any>();
   }
 
   ngOnInit() {
@@ -48,10 +53,11 @@ export class EditToggleComponent implements OnInit {
     this.enabled = enabled;
   }
 
-  editToggle() {
+  editToggle(): void {
     let toggle: Toggle = this._updateToggle();
     this.toggleService.editToggle(toggle).subscribe(
       (res) => {
+        this.closeModal.next();
         this.toastr.success('Toggles data fetched!');
       },
       (err) => {
